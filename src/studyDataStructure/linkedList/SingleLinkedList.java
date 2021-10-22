@@ -40,6 +40,33 @@ public class SingleLinkedList<T> {
         }
     }
 
+    public Node<T> search(T data){
+        if(this.head == null){
+            return null;
+        }else {
+            Node<T> node = this.head;
+            while(node != null){
+                if(node.data == data){
+                    return node;
+                }else{
+                    node = node.next;
+                }
+            }
+            return null;
+        }
+    }
+    public void addNodeInside(T data, T isData){
+        Node<T> searchNode = this.search(isData);
+
+        if(searchNode == null){
+            this.addNode(data);
+        }else{
+            Node<T> nextNode = searchNode.next;
+            searchNode.next = new Node<T>(data);
+            searchNode.next.next = nextNode;
+
+        }
+    }
     public static void main(String[] args) {
         SingleLinkedList<Integer> myLinkedList = new SingleLinkedList<Integer>();
         myLinkedList.addNode(1);
@@ -50,6 +77,7 @@ public class SingleLinkedList<T> {
         System.out.println(myLinkedList.head.data);
         System.out.println(myLinkedList.head.next.data);
 
+        myLinkedList.addNodeInside(5,1);
         myLinkedList.printAll();
 
 
