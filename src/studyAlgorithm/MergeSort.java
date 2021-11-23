@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class MergeSort {
     public ArrayList<Integer> mergeFunc(ArrayList<Integer> leftList, ArrayList<Integer> rightList) {
+
         ArrayList<Integer> mergedList = new ArrayList<Integer>();
 
         Integer leftPoint = 0;
